@@ -70,7 +70,7 @@ public class FlappyBirdView extends View {
 
     private void initPipe() {
         sumPipe = 6;
-        distance = 1000*ConstanstFlappyBird.SCREEN_WIDTH/1920;
+        distance = 700*ConstanstFlappyBird.SCREEN_WIDTH/1920;
         arrPipes = new ArrayList<>();
         for(int i=0; i < sumPipe; i++){
             if(i < sumPipe/2){
