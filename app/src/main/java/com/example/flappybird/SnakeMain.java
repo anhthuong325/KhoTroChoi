@@ -302,4 +302,18 @@ public class SnakeMain {
         this.move_right = false;
         this.move_top = false;
     }
+
+    public void addPart() {
+        PartSnake p = this.arrPartSnake.get(length-1);
+        this.length +=1;
+        if(p.getBm() == bm_tail_right){
+            this.arrPartSnake.add(new PartSnake(bm_tail_right, p.getX() - SnakeView.sizeOfMap, p.getY()));
+        }else if(p.getBm() == bm_tail_left){
+            this.arrPartSnake.add(new PartSnake(bm_tail_left, p.getX() + SnakeView.sizeOfMap, p.getY()));
+        }else if(p.getBm() == bm_tail_up){
+            this.arrPartSnake.add(new PartSnake(bm_tail_up, p.getX(), p.getY() + SnakeView.sizeOfMap));
+        }else if(p.getBm() == bm_tail_down){
+            this.arrPartSnake.add(new PartSnake(bm_tail_right, p.getX(), p.getY() - SnakeView.sizeOfMap));
+        }
+    }
 }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Rect;
 import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -12,9 +13,10 @@ import android.view.View;
 import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class SnakeView extends View {
-    private Bitmap bmGrass1, bmGrass2, bmSnake;
+    private Bitmap bmGrass1, bmGrass2, bmSnake, bmPrey;
     public static int sizeOfMap = 75*ConstantsSnake.SCREEN_WIDTH/1080;
     private  int h = 25, w = 13;
     private ArrayList<GrassSnake> arrGrass = new ArrayList<>();
@@ -23,6 +25,7 @@ public class SnakeView extends View {
     private float mx, my;
     private Handler handler;
     private Runnable r;
+    private Prey prey;
     public SnakeView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         bmGrass1 = BitmapFactory.decodeResource(this.getResources(), R.drawable.grass);
@@ -30,6 +33,9 @@ public class SnakeView extends View {
         bmGrass2 = BitmapFactory.decodeResource(this.getResources(), R.drawable.grass03);
         bmSnake = BitmapFactory.decodeResource(this.getResources(), R.drawable.snake1);
         bmSnake = Bitmap.createScaledBitmap(bmSnake, 14*sizeOfMap, sizeOfMap, true);
+
+        bmPrey = BitmapFactory.decodeResource(this.getResources(), R.drawable.prey);
+        bmPrey = Bitmap.createScaledBitmap(bmPrey, sizeOfMap, sizeOfMap, true);
         for(int i = 0; i < h; i++){
             for(int j = 0; j < w; j++){
                 if((i+j)%2==0){
@@ -43,6 +49,7 @@ public class SnakeView extends View {
         }
         //126 kich thuoc cua 1 o
         snake = new SnakeMain(bmSnake, arrGrass.get(126).getX(), arrGrass.get(126).getY(), 4);
+        prey = new Prey(bmPrey, arrGrass.get(randomPrey()[0]).getX(), arrGrass.get(randomPrey()[1]).getY());
         handler = new Handler();
         r = new Runnable() {
             @Override
@@ -102,6 +109,33 @@ public class SnakeView extends View {
         }
         snake.update();
         snake.draw(canvas);
+        prey.draw(canvas);
+        if(snake.getArrPartSnake().get(0).getrBody().intersect(prey.getR())){
+            randomPrey();
+            prey.reset(arrGrass.get(randomPrey()[0]).getX(), arrGrass.get(randomPrey()[1]).getY());
+            snake.addPart();
+        }
         handler.postDelayed(r, 100);
+    }
+
+    public int[] randomPrey(){
+        int []xy = new int[2];
+        Random r = new Random();
+        xy[0] = r.nextInt(arrGrass.size() - 1);
+        xy[1] = r.nextInt(arrGrass.size() - 1);
+        Rect rect = new Rect(arrGrass.get(xy[0]).getX(), arrGrass.get(xy[1]).getY(), arrGrass.get(xy[0]).getX() + sizeOfMap, arrGrass.get(xy[1]).getY() + sizeOfMap);
+        boolean check = true;
+        while (check){
+            check = false;
+            for (int i = 0; i < snake.getArrPartSnake().size(); i++){
+                if(rect.intersect(snake.getArrPartSnake().get(i).getrBody())){
+                    check = true;
+                    xy[0] = r.nextInt(arrGrass.size() - 1);
+                    xy[1] = r.nextInt(arrGrass.size() - 1);
+                    rect = new Rect(arrGrass.get(xy[0]).getX(), arrGrass.get(xy[1]).getY(), arrGrass.get(xy[0]).getX() + sizeOfMap, arrGrass.get(xy[1]).getY() + sizeOfMap);
+                }
+            }
+        }
+        return xy;
     }
 }
