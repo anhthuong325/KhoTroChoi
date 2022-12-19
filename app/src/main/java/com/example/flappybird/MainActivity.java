@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-    private Button btnFlappyBird, btnSnake;
+    private Button btnFlappyBird, btnSnake, btnCaro;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnFlappyBird = (Button) findViewById(R.id.btn_flappy_bird);
         btnSnake = (Button) findViewById(R.id.btn_snake);
+        btnCaro = (Button) findViewById(R.id.btn_caro);
         btnFlappyBird.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -27,6 +28,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, Snake.class);
+                startActivity(intent);
+            }
+        });
+        btnCaro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, CaroMain.class);
                 startActivity(intent);
             }
         });

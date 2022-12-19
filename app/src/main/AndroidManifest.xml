@@ -14,6 +14,9 @@
         android:theme="@style/Theme.Design.NoActionBar"
         tools:targetApi="31">
         <activity
+            android:name=".CaroMain"
+            android:exported="false" />
+        <activity
             android:name=".Snake"
             android:exported="false" />
         <activity

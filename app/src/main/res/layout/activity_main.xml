@@ -42,4 +42,15 @@
         app:layout_constraintTop_toBottomOf="@+id/btn_flappy_bird"
         app:layout_constraintVertical_bias="0.066" />
 
+    <Button
+        android:id="@+id/btn_caro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Caro"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_snake"
+        app:layout_constraintVertical_bias="0.074"
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>
