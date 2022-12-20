@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.flappybird.CaroMain;
 import com.example.flappybird.R;
 
 public class StartFragment extends Fragment {
@@ -25,6 +26,9 @@ public class StartFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                CaroMain.scoreX = 0;
+                CaroMain.scoreO = 0;
+                transaction.addToBackStack(GameFragment.TAG);
                 transaction.replace(R.id.main_frame, new GameFragment());
                 transaction.commit();
             }

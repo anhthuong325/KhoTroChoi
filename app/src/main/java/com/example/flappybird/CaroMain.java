@@ -12,6 +12,7 @@ import com.example.flappybird.Fragments.StartFragment;
 public class CaroMain extends AppCompatActivity {
 
     private FrameLayout main_frame;
+    public static int scoreO = 0, scoreX = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
