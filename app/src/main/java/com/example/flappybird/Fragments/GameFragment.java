@@ -63,7 +63,7 @@ public class GameFragment extends Fragment {
         btn_again.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                rl_win.setVisibility(View.VISIBLE);
+                rl_win.setVisibility(View.INVISIBLE);
                 reset();
             }
         });

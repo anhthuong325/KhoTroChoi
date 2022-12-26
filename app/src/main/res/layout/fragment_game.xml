@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.GameFragment">
+    tools:context=".Fragments.GameFragment"
+    android:background="@drawable/background_main">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -13,14 +14,16 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2">
+
             <TextView
                 android:id="@+id/txt_turn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Turn of O"
-                android:textSize="35sp"
+                android:layout_centerInParent="true"
                 android:padding="10dp"
-                android:layout_centerInParent="true"/>
+                android:text="Turn of O"
+                android:fontFamily="sans-serif-black"
+                android:textSize="35sp" />
         </RelativeLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -33,6 +36,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="25sp"
                 android:text="O: 0"
+                android:fontFamily="sans-serif-black"
                 android:textColor="#002AFF"/>
             <TextView
                 android:id="@+id/txt_win_x"
@@ -40,6 +44,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="25sp"
                 android:text="X: 0"
+                android:fontFamily="sans-serif-black"
                 android:textColor="#FF0000"
                 android:layout_marginLeft="40dp"/>
         </LinearLayout>
@@ -87,51 +92,58 @@
             android:layout_height="match_parent"
             android:background="#ffffff"
             android:alpha="0.8"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="vertical"
             android:weightSum="12">
+
             <ImageView
                 android:id="@+id/img_win"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@drawable/o"/>
+                android:src="@drawable/o" />
+
             <TextView
+                android:id="@+id/txt_win"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/txt_win"
                 android:text="Win"
-                android:textSize="75sp"
                 android:textColor="#3F51B5"
-                android:textStyle="bold"/>
+                android:textSize="75sp"
+                android:textStyle="bold" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="2"
                 android:gravity="center"
                 android:weightSum="6">
+
                 <Button
+                    android:id="@+id/btn_again"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/btn_again"
                     android:background="@drawable/bg_btn"
                     android:text="Again"
-                    android:textSize="20sp"
-                    android:textAllCaps="false"/>
+                    android:textAllCaps="false"
+                    android:textSize="20sp" />
+
                 <View
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1" />
+
                 <Button
+                    android:id="@+id/btn_home"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/btn_home"
                     android:background="@drawable/bg_btn"
                     android:text="Home"
-                    android:textSize="20sp"
-                    android:textAllCaps="false"/>
+                    android:textAllCaps="false"
+                    android:textSize="20sp" />
             </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
