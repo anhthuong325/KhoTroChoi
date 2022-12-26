@@ -12,34 +12,40 @@
     <TextView
         android:visibility="invisible"
         android:id="@+id/txt_score"
-        android:textColor="#1773D0"
+        android:textColor="#F8A429"
         android:textSize="50dp"
         android:layout_centerHorizontal="true"
         android:text="0"
+        android:textStyle="bold"
+        android:fontFamily="casual"
         android:layout_marginTop="50dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
     <Button
         android:id="@+id/btn_start"
         android:textColor="#000000"
-        android:background="#ffffff"
+        android:background="@drawable/bg_btn3"
         android:layout_centerInParent="true"
         android:padding="5dp"
         android:text="Start"
+        android:fontFamily="serif-monospace"
+        android:textStyle="bold"
+        android:textSize="20sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
     <RelativeLayout
         android:id="@+id/rl_game_over"
-        android:visibility="invisible"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:visibility="invisible">
 
         <TextView
             android:id="@+id/txt_game_over"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            android:fontFamily="cursive"
             android:text="GAME OVER"
             android:textColor="#ff00"
             android:textSize="50dp" />
@@ -61,16 +67,20 @@
             android:layout_below="@+id/txt_score_over"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
+            android:fontFamily="serif-monospace"
             android:text="Best: 0"
+
             android:textSize="20sp" />
+
         <TextView
-            android:layout_marginTop="20dp"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/txt_game_over"
-            android:textColor="#b78f2e"
-            android:textSize="20sp"
-            android:text="Touch screen to continues!"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_game_over"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:fontFamily="serif-monospace"
+            android:text="Touch screen to continues!"
+            android:textColor="#b78f2e"
+            android:textSize="20sp" />
     </RelativeLayout>
 </RelativeLayout>
